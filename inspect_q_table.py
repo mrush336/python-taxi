@@ -3,7 +3,10 @@ import gym
 
 env = gym.make("Taxi-v3").env
 q_path = "./q_table.pickle"
-state = int(input('Enter a number for the state you want to inspect: \n\n'))
+state = int(input('Enter a number for the state you want to inspect: 0 to 499 \n\n'))
+
+assert state >= 0, 'The Q-Table is 0 to 499 frames'
+assert state <= 499, 'The Q-Table is 0 to 499 frames'
 
 def main():
     with open(q_path, 'rb') as f:
